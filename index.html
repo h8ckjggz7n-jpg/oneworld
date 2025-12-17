@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- HTML5 / Canonical Identity -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>OneWorld</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://oneworld-two.vercel.app/" />
+
+  <!-- Identity & Governance -->
+  <meta name="application-name" content="OneWorld" />
+  <meta name="description" content="OneWorld — Context Before Automation. Global HMI & Automation Platform." />
+  <meta name="author" content="OneWorld | Powered by BOX@AI" />
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --fg: #ffffff;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+      --panel: #111827;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+    }
+
+    .app {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .ring {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 22px rgba(59,130,246,0.6);
+      margin-bottom: 24px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .lang-toggle {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .lang-toggle button {
+      background: transparent;
+      border: 1px solid var(--muted);
+      color: var(--fg);
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .lang-toggle button.active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .modules {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .module {
+      background: var(--panel);
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="ring"></div>
+
+    <!-- EN -->
+    <section data-lang="en">
+      <div class="title">OneWorld</div>
+      <div class="subtitle">Context Before Automation</div>
+      <div class="subtitle">Status: Active Development</div>
+      <div class="subtitle">HMI Global • SpellBook Canonical</div>
+    </section>
+
+    <!-- ID -->
+    <section data-lang="id" style="display:none;">
+      <div class="title">OneWorld</div>
+      <div class="subtitle">Konteks Sebelum Otomatisasi</div>
+      <div class="subtitle">Status: Pengembangan Aktif</div>
+      <div class="subtitle">HMI Global • Kanonikal SpellBook</div>
+    </section>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-id" onclick="setLang('id')">ID</button>
+    </div>
+
+    <!-- Canonical Modules (Visual Only) -->
+    <div class="modules">
+      <div class="module">IOT Surface<br/>Devices • Rooms • Context</div>
+      <div class="module">Automation Engine<br/>Rules • Triggers • Policies</div>
+      <div class="module">SpellBook<br/>Knowledge • Intent • Canon</div>
+      <div class="module">Communication<br/>Human ↔ System</div>
+    </div>
+  </div>
+
+  <footer>
+    Powered by BOX@AI • OneWorld Canonical Interface
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+      });
+
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+
+      // Double Checkpoint
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
 
